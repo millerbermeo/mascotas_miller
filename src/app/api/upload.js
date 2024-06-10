@@ -28,7 +28,7 @@ const handler = async (req, res) => {
       const result = await cloudinary.uploader.upload(file, {
         folder: 'nextjs_uploads',
       });
-      await fs.unlink(file); // Borra el archivo temporal
+      await fs.unlink(file); 
       return res.status(200).json({ url: result.secure_url });
     } catch (error) {
       return res.status(500).json({ message: 'Error uploading to Cloudinary' });

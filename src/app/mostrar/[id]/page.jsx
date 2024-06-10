@@ -35,7 +35,7 @@ function Page() {
   return (
     <div className='flex justify-center items-center p-5'>
       <div className='bg-back-image w-[400px] bg-no-repeat h-[90vh] flex flex-col p-3 gap-3'>
-        <div className='flex h-12 w-full justify-center items-center gap-4'>
+        <div className='flex h-12 w-full justify-center items-center gap-4 py-8'>
           <Link href="/pets">
             <Image src={btnBack} alt='btn-back' />
           </Link>
@@ -54,20 +54,20 @@ function Page() {
           </div>
         </div>
         <div className="flex flex-col items-center gap-3">
-          <div className=' flex w-full'>
-            <div className=' bg-[#ffffff56] flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Nombre:</h1></div>
+          <div className=' flex w-full overflow-hidden'>
+            <div className=' bg-[#ffffff56] rounded-l-lg flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Nombre:</h1></div>
             <input className='p-3 bg-[#ffffff82] placeholder:text-[#363360] w-full rounded-r-lg' type="text" value={mascota.name} readOnly />
           </div>
           <div className=' flex w-full'>
-            <div className='  bg-[#ffffff56] flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Raza:</h1></div>
+            <div className='  bg-[#ffffff56] rounded-l-lg  flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Raza:</h1></div>
             <input className='p-3 w-full bg-[#ffffff82] placeholder:text-[#333a60] rounded-r-lg' type="text" value={mascota.fk_race?.name} readOnly />
           </div>
           <div className=' flex w-full'>
-            <div className='  bg-[#ffffff56] flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Categoría:</h1></div>
+            <div className='  bg-[#ffffff56] rounded-l-lg  flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Categoría:</h1></div>
             <input className='p-3 w-full bg-[#ffffff82] placeholder:text-[#333a60] rounded-r-lg' type="text" value={mascota.fk_category?.name} readOnly />
           </div>
           <div className=' flex w-full'>
-            <div className='  bg-[#ffffff56] flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Género:</h1></div>
+            <div className='  bg-[#ffffff56] rounded-l-lg  flex items-center justify-center p-2 w-[200px]'><h1 className='font-bold text-white'>Género:</h1></div>
             <input className='p-3 w-full bg-[#ffffff82] placeholder:text-[#333a60] rounded-r-lg' type="text" value={mascota.fk_gender?.name} readOnly />
           </div>
         </div>

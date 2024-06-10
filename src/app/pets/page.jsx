@@ -36,7 +36,7 @@ function Page() {
   return (
     <div className='flex justify-center items-center p-5'>
       <div className='bg-back-image w-[400px] bg-no-repeat h-[90vh] flex flex-col p-3 gap-3'>
-        <div className='flex h-12 w-full justify-center items-center gap-4 '>
+        <div className='flex h-12 w-full justify-center items-center gap-4 py-8'>
           <Link href="/">
             <Image className='' src={btnBack} alt='btn-back' />
           </Link>
@@ -50,7 +50,7 @@ function Page() {
             <Image className='w-full' src={btnAdd} alt='btn-register' />
           </Link>
         </div>
-        <div className='h-[75%]  overflow-y-auto pb-20'>
+        <div className='h-[75%]  overflow-y-auto '>
           {
             mascotas.map(mascota => (
               <div key={mascota.id} className='bg-white bg-opacity-50 hover:bg-opacity-70 cursor-pointer rounded-[25px] p-2 flex mb-3'>

@@ -1,6 +1,7 @@
 import { sign } from "jsonwebtoken";
 import { NextResponse } from "next/server";
-import prisma from "../../../../lib/prisma"; // Ajusta la ruta según tu estructura de proyecto
+import prisma from "../../../../lib/prisma";
+import bcrypt from "bcryptjs"; // Importa bcryptjs
 
 export async function POST(request) {
   try {
@@ -11,7 +12,8 @@ export async function POST(request) {
       where: { email },
     });
 
-    if (user && user.password === password) { // Asegúrate de usar un hash seguro en un entorno real
+    // Verifica la contraseña utilizando bcrypt.compare
+    if (user && await bcrypt.compare(password, user.password)) {
       const token = sign(
         {
           exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
@@ -33,7 +35,7 @@ export async function POST(request) {
         name: "myTokenName",
         value: token,
         httpOnly: true,
-        secure: process.env.NODE_ENV === "secret",
+        secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
         maxAge: 1000 * 60 * 60 * 24 * 30,
         path: "/",

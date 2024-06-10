@@ -21,8 +21,8 @@ const DeleteModal = ({ petId, getMascotas }) => {
       });
 
       getMascotas()
-      // Llama a la función de éxito de eliminación proporcionada
-      setIsModalOpen(false); // Cierra el modal después de eliminar
+
+      setIsModalOpen(false);
     } catch (error) {
       console.error("Error deleting pet:", error);
     }

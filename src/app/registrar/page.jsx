@@ -111,7 +111,7 @@ function Page() {
   return (
     <div className='flex justify-center items-center p-5'>
       <div className='bg-back-image w-[400px] bg-no-repeat h-[90vh] flex flex-col p-3 gap-3'>
-        <div className='flex h-12 w-full justify-center items-center gap-4'>
+        <div className='flex h-12 w-full justify-center items-center gap-4 py-8'>
           <Link href="/pets">
             <Image src={btnBack} alt='btn-back' />
           </Link>

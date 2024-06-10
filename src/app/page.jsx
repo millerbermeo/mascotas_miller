@@ -9,7 +9,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true); // Estado de carga
+  const [loading, setLoading] = useState(true); 
   const router = useRouter();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Home() {
     if (token) {
       router.push("/pets");
     } else {
-      setLoading(false); // Termina la carga si no hay token
+      setLoading(false); 
     }
   }, [router]);
 
@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   if (loading) {
-    return null; // O muestra un spinner de carga si lo prefieres
+    return null; 
   }
 
   return (

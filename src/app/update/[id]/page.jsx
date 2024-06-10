@@ -139,7 +139,7 @@ function Page() {
   return (
     <div className='flex justify-center items-center p-5'>
       <div className='bg-back-image w-[400px] bg-no-repeat h-[90vh] flex flex-col p-3 gap-3'>
-        <div className='flex h-12 w-full justify-center items-center gap-4'>
+        <div className='flex h-12 w-full justify-center items-center gap-4 py-8'>
           <Link href="/pets">
             <Image src={btnBack} alt='btn-back' />
           </Link>
@@ -171,7 +171,7 @@ function Page() {
             )}
           </div>
         </div>
-        <div className="">
+        <div className="px-2">
           <form className='flex flex-col items-center gap-3' onSubmit={putMascota}>
             <input
               name='name'
@@ -184,7 +184,7 @@ function Page() {
               name='race_id'
               onChange={inputValue}
               value={pet.race_id}
-              className='p-3 w-full bg-[#ffffffa5] outline-none rounded-[30px]'
+              className='p-3  w-full bg-[#ffffffa5] outline-none rounded-[30px]'
             >
               {razas.map(raza => (
                 <option key={raza.id} value={raza.id}>
@@ -226,7 +226,7 @@ function Page() {
               ))}
             </select>
             <button type='submit'>
-              <Image src={btnUpdate} alt='btn close' />
+              <Image src={btnUpdate} alt='btn save' />
             </button>
           </form>
         </div>

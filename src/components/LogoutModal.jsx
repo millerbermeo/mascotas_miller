@@ -19,8 +19,8 @@ const LogoutModal = () => {
           Authorization: `Bearer ${token}`
         }
       });
-      Cookies.remove('myTokenName'); // Elimina la cookie 'myTokenName'
-      router.push("/"); // Redirige al usuario al inicio de sesión
+      Cookies.remove('myTokenName'); 
+      router.push("/"); 
     } catch (error) {
       console.error("Error logging out:", error);
     }
