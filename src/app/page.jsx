@@ -45,7 +45,7 @@ export default function Home() {
       <div className="bg-custom-image w-[400px] bg-no-repeat h-[90vh] relative m-auto flex justify-center items-end">
 
 
-        <form onSubmit={handleSubmit} className="w-full relative flex flex-col gap-2 p-2 pb-20">
+        <form onSubmit={handleSubmit} className="w-full relative flex flex-col gap-2 p-2 pb-28">
           {error && <p className="text-red-500">{error}</p>}
           <input
             className="bg-[#ffffff8d] rounded-[30px] p-3"

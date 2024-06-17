@@ -18,6 +18,7 @@ import DeleteModal from '@/components/DeleteModal';
 
 function Page() {
   const [mascotas, setMascotas] = useState([]);
+  const [consultas, setConsultas] = useState([]);
 
   const getMascotas = async () => {
     const respuesta = await axios.get("/api/mascotas", {
@@ -29,8 +30,24 @@ function Page() {
     setMascotas(data);
   };
 
+  const getConsultas = async () => {
+    try {
+      const respuesta = await axios.get("http://localhost:3000/api/consultas", {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      });
+      const data = respuesta.data.datos;
+      setConsultas(data);
+    } catch (error) {
+      console.error("Error al obtener consultas:", error);
+      router.push('/error');
+    }
+  };
+
   useEffect(() => {
     getMascotas();
+    getConsultas();
   }, []);
 
   return (
@@ -49,6 +66,21 @@ function Page() {
           <Link href="/registrar">
             <Image className='w-full' src={btnAdd} alt='btn-register' />
           </Link>
+        </div>
+        <div className='w-full h-auto bg-gray-100'>
+          <h3>Consultas</h3>
+          <div>
+            {consultas.map(consulta => (
+              <div key={consulta.id} className=' bg-opacity-50 hover:bg-opacity-70 cursor-pointer rounded-[25px] p-2 flex mb-3'>
+                <div className='flex w-full justify-start items-center gap-2'>
+                  <div className="flex flex-col w-2/3">
+                    <h1 className='font-normal text-blue-800'>Nombre: {consulta.race_name}</h1>
+                    <h2 className='text-gray-700'>Cantidad: {consulta.count}</h2>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className='h-[75%]  overflow-y-auto '>
           {
